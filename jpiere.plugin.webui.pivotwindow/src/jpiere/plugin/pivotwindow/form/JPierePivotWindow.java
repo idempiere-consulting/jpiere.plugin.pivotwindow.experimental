@@ -80,7 +80,7 @@ import org.zkoss.pivot.impl.TabularPivotField;
 import org.zkoss.pivot.impl.TabularPivotModel;
 import org.zkoss.pivot.ui.PivotFieldControl;
 import org.zkoss.pivot.util.Exports;
-import org.zkoss.pivot.util.Exports.PivotExportContext;
+import org.zkoss.pivot.util.PivotExportContext;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
@@ -288,7 +288,7 @@ public class JPierePivotWindow extends AbstractPivotWindowForm implements EventL
 			boolean isMandatory = !m_lookup && pivotField.isMandatory() && pivotField.isQueryCriteria();
 			GridFieldVO vo = GridFieldVO.createParameter(Env.getCtx(), p_WindowNo, AEnv.getADWindowID(p_WindowNo), 0, 0,
 					columnName, pivotField.get_Translation("Name"), pivotField.getAD_Reference_ID(), 
-					pivotField.getAD_Reference_Value_ID(), isMandatory, false);
+					pivotField.getAD_Reference_Value_ID(), isMandatory, false, null);
 			if (pivotField.getAD_Val_Rule_ID() > 0) 
 			{
 				vo.ValidationCode = pivotField.getAD_Val_Rule().getCode();

@@ -2,15 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: jpiere.plugin.webui.pivotwindow.fragment
 Bundle-SymbolicName: jpiere.plugin.webui.pivotwindow.fragment.experimental
-Bundle-Version: 1.0.0.qualifier
-Fragment-Host: org.adempiere.ui.zk;bundle-version="4.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-ClassPath: WEB-INF/lib/dom4j-1.6.1.jar,
- WEB-INF/lib/ooxml-schemas-1.1.jar,
+Bundle-Version: 7.1.0.qualifier
+Fragment-Host: org.adempiere.ui.zk;bundle-version="7.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-ClassPath: WEB-INF/lib/dom4j.jar,
+ WEB-INF/lib/ooxml-schemas.jar,
  WEB-INF/lib/pivottable.jar,
- WEB-INF/lib/xmlbeans-2.3.0.jar,
- WEB-INF/lib/zpoi-3.8.1.jar,
- WEB-INF/lib/zpoiex-3.8.1.jar,
+ WEB-INF/lib/zpoi.jar,
  .
 Export-Package: org.zkoss.pivot,
  org.zkoss.pivot.event,
