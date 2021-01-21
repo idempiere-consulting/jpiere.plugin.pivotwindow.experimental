@@ -55,11 +55,11 @@
 								    <version>3.9.7</version>
 								    <!-- <version>3.8.1</version> -->
 								</artifactItem>
-								<!-- <artifactItem>
+								 <artifactItem>
 								    <groupId>org.zkoss.poi</groupId>
 								    <artifactId>zpoiex</artifactId>
 								    <version>3.9.7</version>
-								</artifactItem> -->
+								</artifactItem> 
 							</artifactItems>
 							<outputDirectory>WEB-INF/lib</outputDirectory>
 							<stripVersion>true</stripVersion>
