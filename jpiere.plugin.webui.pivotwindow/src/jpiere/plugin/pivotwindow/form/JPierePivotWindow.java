@@ -999,7 +999,7 @@ public class JPierePivotWindow extends AbstractPivotWindowForm implements EventL
 		}else if (comp.equals(downLoadXLS)){
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
 			PivotExportContext context = Exports.getExportContext(pivot, false, null);
-			Exports.exportExcel(out, "xls", context, null);
+			Exports.exportExcel(out, "xls", context);
 			m_pivotWindow.get_Translation("Name");
 			Filedownload.save(out.toByteArray(), "application/vnd.ms-excel", m_pivotWindow.get_Translation("Name")+".xls");
 			
