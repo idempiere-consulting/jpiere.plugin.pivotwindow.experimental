@@ -191,6 +191,8 @@ public class JPierePivotWindow extends AbstractPivotWindowForm implements EventL
 	protected List<Object> prevParameterValues = null;
 	protected List<String> prevQueryOperators = null;
 	protected List<WEditor> prevRefParmeterEditor = null;
+	//iDempiereConsulting __07/03/2023 --- Utilizzo di variabile tmp per blocco loop su ValueChangeEvent di alcuni campi editor
+	private String tmpEventChange = "";	
 	
 	
 	
@@ -878,7 +880,12 @@ public class JPierePivotWindow extends AbstractPivotWindowForm implements EventL
 		
 		
 		}else if (e != null && e.getSource() instanceof WEditor){
-			
+			//iDempiereConsulting __07/03/2023 --- Utilizzo di variabile tmp per blocco loop su ValueChangeEvent di alcuni campi editor
+			if(tmpEventChange.equals(e.getPropertyName()))
+				return;
+			else
+				tmpEventChange = e.getPropertyName();
+			//iDempiereConsulting __07/03/2023 ----------END
 			WEditor editor = (WEditor)e.getSource();            
             if (e.getNewValue() == null) 
             {
@@ -908,8 +915,12 @@ public class JPierePivotWindow extends AbstractPivotWindowForm implements EventL
     		
             
             dynamicDisplay();
-            searchButton.setEnabled(true);
-            downLoadButton.setEnabled(false);
+          //iDempiereConsulting __07/03/2023 --- Errore alla prima occorrenza se non creati....
+            if(searchButton!=null)
+            	searchButton.setEnabled(true);
+            if(downLoadButton!=null)
+            	downLoadButton.setEnabled(false);
+          //iDempiereConsulting __07/03/2023 ---------END
             detachPivot();            	
         }
 	}//valueChange
@@ -957,6 +968,8 @@ public class JPierePivotWindow extends AbstractPivotWindowForm implements EventL
 				pivot.setDataFieldOrient("column");
 						
 		}else if (comp.equals(searchButton)){
+			//iDempiereConsulting __07/03/2023 --- Utilizzo di variabile tmp per blocco loop su ValueChangeEvent di alcuni campi editor
+			tmpEventChange = "";
 			
 			if(validateParameters())
 			{
@@ -1397,7 +1410,7 @@ public class JPierePivotWindow extends AbstractPivotWindowForm implements EventL
 				}
 			} else if (editor.getGridField() != null && editor.getValue() != null && editor.getValue().toString().trim().length() > 0) {
 				MPivotWindowField mInfoColumn = findInfoColumn(editor.getGridField());
-				if (mInfoColumn == null || mInfoColumn.getSelectClause().equals("0")) {
+				if (mInfoColumn == null || mInfoColumn.getSelectClause()==null || mInfoColumn.getSelectClause().equals("0")) {//iDempiereConsulting __07/03/2023 --- 
 					continue;
 				}
 				String columnName = mInfoColumn.getSelectClause();
