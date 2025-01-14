@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: jpiere.plugin.webui.pivotwindow.fragment
 Bundle-SymbolicName: jpiere.plugin.webui.pivotwindow.fragment.experimental
-Bundle-Version: 11.0.0.qualifier
+Bundle-Version: 12.0.0.qualifier
 Fragment-Host: org.adempiere.ui.zk
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ClassPath: WEB-INF/lib/pivottable.jar,
